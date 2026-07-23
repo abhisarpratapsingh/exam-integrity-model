@@ -1,13 +1,12 @@
 # Contributing
 
-Thanks for considering a contribution. This project sits at the intersection of a real, still-sensitive news event and a small amount of real cryptography, so a few things matter more here than in a typical demo repo.
+Thanks for considering a contribution. A few things matter here given what this project is.
 
 ## Ground rules
 
-1. **Keep the political framing out of the code and docs.** This project takes a position on a mechanism (diffused custody is a security failure, not a policing one), not on any party, politician, or protest movement. PRs that add commentary on who's "at fault" in the 2026 NEET-UG controversy beyond the sourced, quoted facts in the README will be redirected back to that scope.
-2. **Every factual claim about the real 2026 leak needs a source.** If you're adding or correcting a fact in the README's background section, include where it came from (publication and date is enough, we're not trying to build a footnote apparatus).
-3. **"Real" exhibits stay real.** If you touch `src/custody-chain.js`, `src/shamir.js`, or `src/similarity.js`, the change needs to keep passing `npm test`, and if you're changing behavior, add or update a test that would have caught the bug you're fixing. Do not reintroduce scripted/simulated behavior into anything currently labeled "Real" in the README or demo, that distinction is the point of this project (see the git history around the rewrite from a scripted demo to a working one for context on why this matters).
-4. **No production security claims.** This is a teaching-grade implementation (see [SECURITY.md](SECURITY.md)). PRs that describe it as production-ready, audited, or suitable for real secret management without heavy caveats won't be merged as-is.
+1. **Modules stay real.** If you touch `src/custody-chain.js`, `src/shamir.js`, or `src/similarity.js`, the change needs to keep passing `npm test`, and if you're changing behavior, add or update a test that would have caught the bug you're fixing. Do not reintroduce scripted or simulated behavior into anything currently labeled "Real" in the README or demo, that distinction (an earlier draft used a toy hash function and a scripted countdown timer dressed up to look real, see the git history) is the whole point of this project.
+2. **No production security claims.** This is a teaching-grade implementation (see [SECURITY.md](SECURITY.md)). PRs that describe it as production-ready, audited, or suitable for real secret management without heavy caveats won't be merged as-is.
+3. **Keep the demo and docs plain.** This project is meant to read like a normal technical repository: what it does, how it works, how to verify it. Additions that turn the README or demo copy into a pitch, an argument, or commentary on any real-world event are out of scope; keep contributions focused on the mechanisms themselves.
 
 ## Development
 

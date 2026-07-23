@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case File: The Paper That Leaked Itself — An Exam Integrity Model</title>
-<meta name="description" content="An interactive case file demonstrating a supply-chain model for exam integrity, with real running cryptography: a SHA-256 custody chain, a genuine Shamir's Secret Sharing scheme, and a live text-similarity detector.">
+<title>Exam Integrity Model — Custody Chain, Secret Sharing, Similarity Detection</title>
+<meta name="description" content="Three real, tested mechanisms for exam and document integrity, running live in your browser: a SHA-256 custody chain, a genuine Shamir's Secret Sharing scheme, and a text-similarity detector.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,71 +14,21 @@
 <body>
 
 <div class="case-progress"><div class="case-progress-fill" id="progressFill"></div></div>
-<div class="top-tag"><span class="dot"></span> CASE FILE — OPEN</div>
 
 <header class="hero texture wrap">
-  <div class="hero-grid">
-    <div class="reveal">
-      <span class="eyebrow">Case File No. NEET-UG/2026</span>
-      <h1>The paper was compromised <em>before</em> the first student sat down.</h1>
-      <p class="sub">On May 3, 2026, 22.7 lakh students sat the NEET-UG exam. A version of the question paper had already been circulating for close to a month. Three of the four exhibits below are not slides, they are small working programs, real cryptography and real math, running in your browser right now.</p>
-      <div class="scroll-cue"><span class="arrow">↓</span> Scroll to open the case</div>
-    </div>
-    <div class="reveal" style="transition-delay:.1s">
-      <div class="doc-mock">
-        <div class="doc-head">National Eligibility cum Entrance Test — UG · Set A</div>
-        <div class="doc-line" style="width:88%"></div>
-        <div class="doc-line redact" style="width:74%"></div>
-        <div class="doc-line" style="width:92%"></div>
-        <div class="doc-q">Q47 <span class="redact-inline"></span></div>
-        <div class="doc-line redact" style="width:62%"></div>
-        <div class="doc-line" style="width:80%"></div>
-        <div class="doc-q">Q48 <span class="redact-inline"></span></div>
-        <div class="doc-line redact" style="width:70%"></div>
-        <div class="doc-line" style="width:55%"></div>
-        <div class="stamp">COMPROMISED</div>
-      </div>
-    </div>
-  </div>
-  <div class="stat-strip reveal" style="transition-delay:.2s">
-    <div class="stat"><b>22,70,000</b><small>candidates sat the exam</small></div>
-    <div class="stat"><b>120 / ~400</b><small>questions matched a pre-circulated paper</small></div>
-    <div class="stat"><b>1</b><small>insider with legitimate access, per investigators</small></div>
-    <div class="stat"><b>~30 days</b><small>the paper circulated before exam day</small></div>
+  <div class="reveal">
+    <span class="eyebrow">Exam Integrity Model</span>
+    <h1>Three mechanisms for a custody chain that can't stay diffused.</h1>
+    <p class="sub">Most exam-security reforms assume theft in transit: sealed containers, armed transport, restricted printing. They do little against a different threat model, someone who already has legitimate access. These three mechanisms are aimed at that threat model specifically. All three run live below, this is not a mockup.</p>
+    <div class="scroll-cue"><span class="arrow">↓</span> Scroll to try them</div>
   </div>
 </header>
 
 <section class="exhibit texture">
   <div class="wrap">
-    <span class="eyebrow reveal">Exhibit A <span class="mode-badge narrative">Narrative reconstruction</span></span>
-    <h2 class="reveal">A leak has a shape. This one was insider-shaped.</h2>
-    <p class="lede reveal">Every reform on the books assumes theft in transit, someone intercepting a paper on its way to a centre. Investigators believe this one moved differently: written out by someone who already had legitimate access, then scanned and sold as a "guess paper" for weeks before anyone official noticed. This exhibit walks the reported timeline, it is a storytelling aid, not a live system.</p>
-
-    <div class="panel reveal">
-      <div class="row-controls">
-        <button class="btn-mini" id="tlPlay">▶ Replay timeline</button>
-        <span class="tl-stage-day" id="tlDay">T-30</span>
-        <input type="range" min="0" max="5" step="1" value="0" class="tl-slider" id="tlSlider" aria-label="Scrub leak timeline" aria-valuetext="Day T-30, insider access">
-      </div>
-      <div class="tl-readout">
-        <div>
-          <h3 id="tlTitle">Insider access</h3>
-          <p id="tlDesc">Someone with legitimate access to the question bank writes the paper out by hand. No system logs a "leak" yet, because on paper, nothing has left the building.</p>
-        </div>
-        <div>
-          <div class="swarm" id="tlSwarm" aria-hidden="true"></div>
-          <div class="swarm-label">Illustrative spread model, not a reported statistic — copies in circulation: <b id="tlCount">1</b></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="exhibit texture">
-  <div class="wrap">
-    <span class="eyebrow reveal">Exhibit B <span class="mode-badge real">Real SHA-256, computed live</span></span>
+    <span class="eyebrow reveal">01 — Custody chain</span>
     <h2 class="reveal">Diffused, until it isn't.</h2>
-    <p class="lede reveal">A Supreme Court bench reviewing the case named the actual mechanism of failure: obligations that aren't fixed on a named person stay, in the Court's own word, <em style="font-style:italic">"diffused,"</em> and diffused accountability isn't accountability at all. Toggle the chain below. In pinned mode, every hash is computed in this page, right now, with the browser's native <code>crypto.subtle.digest</code>, nothing is precomputed.</p>
+    <p class="lede reveal">A custody log where obligations aren't fixed on a named person is, in practice, unaccountable: no one is individually traceable, so nothing about a handoff can be verified after the fact. Toggle the chain below. In pinned mode, every hash is computed in this page, right now, with the browser's native <code>crypto.subtle.digest</code>, nothing is precomputed.</p>
 
     <div class="reveal">
       <div class="toggle-row">
@@ -86,7 +36,7 @@
           <button id="btnDiffused" class="active" aria-pressed="true">Diffused</button>
           <button id="btnPinned" aria-pressed="false">Pinned</button>
         </div>
-        <span class="caption" id="custodyCaption">Six people touch this paper. In this model, none of them are individually traceable.</span>
+        <span class="caption" id="custodyCaption">Six people touch this document. In this model, none of them are individually traceable.</span>
       </div>
       <div class="chain" id="chain"></div>
       <div id="pinnedControls" style="display:none; margin-top:20px;">
@@ -101,9 +51,9 @@
 
 <section class="exhibit texture">
   <div class="wrap">
-    <span class="eyebrow reveal">Exhibit C <span class="mode-badge real">Real Shamir's Secret Sharing, 4-of-6</span></span>
+    <span class="eyebrow reveal">02 — Secret sharing</span>
     <h2 class="reveal">Nothing whole to leak.</h2>
-    <p class="lede reveal">If a full paper, or the key that unlocks it, exists in one place, it can be copied by one person, exactly as happened here. Below, a real secret is split across six custodians using Shamir's Secret Sharing over GF(256). Toggle which custodians are cooperating. Reconstruction runs live, byte for byte, on whatever you select.</p>
+    <p class="lede reveal">If a full document, or the key that unlocks it, exists in one place, it can be copied by one person. Below, a real secret is split across six custodians using Shamir's Secret Sharing over GF(256). Toggle which custodians are cooperating. Reconstruction runs live, byte for byte, on whatever you select.</p>
 
     <div class="frag-panel reveal">
       <div class="frag-stage" id="fragStage" aria-hidden="true">
@@ -129,27 +79,27 @@
 
 <section class="exhibit texture">
   <div class="wrap">
-    <span class="eyebrow reveal">Exhibit D <span class="mode-badge real">Real Jaccard similarity, live</span></span>
-    <h2 class="reveal">Caught by a machine, not by luck.</h2>
-    <p class="lede reveal">In the real case, the pattern was caught by a chemistry teacher in Sikar, comparing a "guess paper" against the real one by hand. Below is a genuine similarity check, four-character shingles, Jaccard index, running on whatever text sits in either box. Edit either one and watch the score move.</p>
+    <span class="eyebrow reveal">03 — Similarity detection</span>
+    <h2 class="reveal">Detection that doesn't require manual inspection.</h2>
+    <p class="lede reveal">Below is a genuine similarity check, four-character shingles, Jaccard index, running on whatever text sits in either box. Edit either one and watch the score move.</p>
 
     <div class="signal-panel reveal">
       <div>
-        <label class="caption field-lbl" for="textA">Text A — official paper (illustrative excerpt)</label>
+        <label class="caption field-lbl" for="textA">Text A — reference document (illustrative excerpt)</label>
         <textarea id="textA" class="compare-input">Q41. A block of mass 2 kg slides down a frictionless incline set at 30 degrees to the horizontal. Determine the acceleration of the block along the incline and the magnitude of the normal force exerted by the incline surface. Q42. In a first order reaction, the concentration of reactant reduces to half its initial value in 20 minutes. Calculate the rate constant of the reaction and the time required for 75 percent completion.</textarea>
-        <label class="caption field-lbl" style="margin-top:16px; display:block;" for="textB">Text B — circulating document (illustrative excerpt)</label>
+        <label class="caption field-lbl" style="margin-top:16px; display:block;" for="textB">Text B — document under comparison (illustrative excerpt)</label>
         <textarea id="textB" class="compare-input">Q41. A block of mass 2 kg slides down a smooth incline inclined at 30 degrees to the horizontal. Find the acceleration along the incline and the normal reaction offered by the incline surface. Q42. For a first order reaction, the reactant concentration falls to half its starting value in 20 minutes. Find the rate constant and time needed for 75 percent completion.</textarea>
       </div>
       <div class="signal-side">
         <h3>Live overlap score</h3>
-        <p>Computed as a Jaccard similarity over 4-character shingles, entirely in your browser, on every keystroke. Both example passages are original, written for this demo, not taken from any real exam.</p>
+        <p>Computed as a Jaccard similarity over 4-character shingles, entirely in your browser, on every keystroke. Both example passages are original, written for this demo.</p>
         <div class="meter-wrap">
           <div class="meter-label"><span>Similarity</span><span id="meterVal">0%</span></div>
           <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
         </div>
         <div class="flag-banner" id="flagBanner">FLAGGED</div>
         <div class="signal-vs">
-          <div class="row"><span class="who">Manual detection, 2026</span><span class="when old">One person, one hour after the exam, by hand</span></div>
+          <div class="row"><span class="who">Manual comparison</span><span class="when old">One person, reading both documents side by side</span></div>
           <div class="row"><span class="who">Pattern detection, this demo</span><span class="when new">Continuous, live, in this page</span></div>
         </div>
       </div>
@@ -159,29 +109,27 @@
 
 <section class="closing texture">
   <div class="wrap">
-    <span class="eyebrow reveal">Closing argument</span>
-    <h2 class="reveal">None of this needs new law. It needs someone to build it.</h2>
-    <p class="reveal">Custody that can't stay diffused. A secret with nothing whole to steal until enough custodians agree. Detection that doesn't wait for a chemistry teacher to lose sleep over a hunch. Three mechanisms, one supply chain problem.</p>
+    <span class="eyebrow reveal">Summary</span>
+    <h2 class="reveal">Three mechanisms, one supply-chain problem.</h2>
+    <p class="reveal">A custody chain that can't stay diffused. A secret with nothing whole to steal until enough custodians agree. Detection that doesn't require manual inspection. Each one runs live on this page, and each one is backed by a test in the repository.</p>
     <div class="cta-row reveal">
-      <a class="btn primary" href="https://github.com/sole-prop/exam-integrity-model" onclick="return false;">View the repository →</a>
-      <a class="btn ghost" href="../README.md" onclick="return false;">Read the write-up</a>
+      <a class="btn primary" href="https://github.com/sole-prop/exam-integrity-model">View the repository →</a>
+      <a class="btn ghost" href="https://github.com/sole-prop/exam-integrity-model#readme">Read the documentation</a>
     </div>
     <div class="disclaimer reveal">
       <b>What actually runs live on this page:</b>
       <ul>
-        <li>Exhibit B computes a genuine SHA-256 hash chain with the browser's native <code>crypto.subtle</code>, nothing precomputed.</li>
-        <li>Exhibit C runs a real 4-of-6 Shamir's Secret Sharing scheme over GF(256), reconstructing, or failing to, byte for byte.</li>
-        <li>Exhibit D computes a real Jaccard shingle-similarity score on whatever text you type.</li>
-        <li>Exhibit A is a narrative reconstruction of the publicly reported timeline. It is illustration, not a live system, and is labeled as such above.</li>
+        <li>Module 01 computes a genuine SHA-256 hash chain with the browser's native <code>crypto.subtle</code>, nothing precomputed.</li>
+        <li>Module 02 runs a real 4-of-6 Shamir's Secret Sharing scheme over GF(256), reconstructing, or failing to, byte for byte.</li>
+        <li>Module 03 computes a real Jaccard shingle-similarity score on whatever text you type.</li>
       </ul>
-      <div style="margin-top:12px;">None of this is connected to NTA, any exam board, or any real dataset. See the project README for full sourcing and scope.</div>
+      <div style="margin-top:12px;">None of this is connected to any real institution's systems or data. See the project README for full scope and limitations.</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div>CASE FILE CLOSED — DEMONSTRATION BUILD</div>
-  <div class="sources">Sources for real facts referenced above: reporting on the 2026 NEET-UG controversy (Wikipedia; Countercurrents; SCC Online, May 2026); the Sikar whistleblower timeline and Rajasthan Police statements (MedBound Times, June 2026); Supreme Court observations on diffused accountability (How2Shout, July 2026); the 1997 Odisha protest and 2026 ministerial statement (The Indian Express profile via Brut, July 2026; Oneindia, July 2026).</div>
+  <div>EXAM INTEGRITY MODEL — DEMONSTRATION BUILD</div>
 </footer>
 
 <!-- Real logic modules, loaded as plain scripts (not ES modules) so this page

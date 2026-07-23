@@ -7,7 +7,7 @@ labels: enhancement
 
 **What are you proposing?**
 
-**Is this a change to an existing "Real" exhibit, or a new one?**
+**Is this a change to an existing "Real" module, or a new one?**
 If it changes behavior of `src/custody-chain.js`, `src/shamir.js`, or `src/similarity.js`, note which tests would need to change and whether the "real, not simulated" property (see README) is preserved.
 
 **Why does this belong in this project specifically?**

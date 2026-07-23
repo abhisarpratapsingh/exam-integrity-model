@@ -1,7 +1,7 @@
 {
   "name": "exam-integrity-model",
   "version": "0.1.0",
-  "description": "An open, interactive model for exam-integrity supply chains: a real SHA-256 custody chain, a genuine Shamir's Secret Sharing scheme, and a live text-similarity detector, built to accompany a public case study of the 2026 NEET-UG leak.",
+  "description": "A demonstration toolkit for document/exam integrity supply chains: a SHA-256 hash-chained custody log, a genuine Shamir's Secret Sharing (k-of-n threshold) implementation, and a live text-similarity detector.",
   "private": true,
   "license": "MIT",
   "type": "commonjs",

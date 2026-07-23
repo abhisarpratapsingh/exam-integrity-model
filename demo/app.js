@@ -11,8 +11,6 @@
 (function () {
   'use strict';
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   const progressFill = document.getElementById('progressFill');
   function updateProgress() {
     const h = document.documentElement;
@@ -58,65 +56,7 @@
       .replace(/"/g, '&quot;');
   }
 
-  /* ============================= EXHIBIT A: TIMELINE (narrative) ============================= */
-  const stages = [
-    { day: 'T-30', title: 'Insider access', desc: 'Someone with legitimate access to the question bank writes the paper out by hand. No system logs a "leak" yet, because on paper, nothing has left the building.', spread: 2 },
-    { day: 'T-24', title: 'First scan', desc: 'The handwritten copy is scanned into a PDF, roughly 400 questions, and starts moving as a digital file for the first time.', spread: 10 },
-    { day: 'T-19', title: 'Coaching circles', desc: 'The PDF begins circulating through coaching networks across several states, marketed as a "guess paper" rather than the real thing.', spread: 24 },
-    { day: 'T-5', title: 'Wider forwarding', desc: 'Forwards multiply through private groups. Investigators later recover payment records tied to this stretch.', spread: 42 },
-    { day: 'T-0', title: 'Exam day', desc: '22.7 lakh students sit the exam. Almost none of them know a version of it has already been circulating for weeks.', spread: 60 },
-    { day: 'T+1', title: 'Caught, by hand', desc: 'A chemistry teacher in Sikar compares the guess paper against the real one at 1:30am. 120 of roughly 400 questions match.', spread: 60 },
-  ];
-  const tlSlider = document.getElementById('tlSlider');
-  const tlDay = document.getElementById('tlDay');
-  const tlTitle = document.getElementById('tlTitle');
-  const tlDesc = document.getElementById('tlDesc');
-  const tlCount = document.getElementById('tlCount');
-  const tlSwarm = document.getElementById('tlSwarm');
-  const tlPlay = document.getElementById('tlPlay');
-  const SWARM_TOTAL = 60;
-  for (let i = 0; i < SWARM_TOTAL; i++) tlSwarm.appendChild(document.createElement('i'));
-  const swarmDots = tlSwarm.querySelectorAll('i');
-
-  function renderStage(idx) {
-    const s = stages[idx];
-    tlDay.textContent = s.day;
-    tlTitle.textContent = s.title;
-    tlDesc.textContent = s.desc;
-    tlSlider.setAttribute('aria-valuetext', 'Day ' + s.day + ', ' + s.title);
-    const approxCopies = idx === 0 ? 1 : Math.round(Math.pow(s.spread, 2.1));
-    tlCount.textContent = approxCopies.toLocaleString('en-IN');
-    swarmDots.forEach((dot, i) => dot.classList.toggle('lit', i < s.spread));
-  }
-  tlSlider.addEventListener('input', (e) => renderStage(parseInt(e.target.value, 10)));
-  renderStage(0);
-
-  let tlTimer = null;
-  tlPlay.addEventListener('click', () => {
-    if (tlTimer) {
-      clearInterval(tlTimer);
-      tlTimer = null;
-      tlPlay.textContent = '▶ Replay timeline';
-      return;
-    }
-    let i = 0;
-    tlSlider.value = 0;
-    renderStage(0);
-    tlPlay.textContent = '⏸ Playing…';
-    tlTimer = setInterval(() => {
-      i++;
-      if (i > stages.length - 1) {
-        clearInterval(tlTimer);
-        tlTimer = null;
-        tlPlay.textContent = '▶ Replay timeline';
-        return;
-      }
-      tlSlider.value = i;
-      renderStage(i);
-    }, reduceMotion ? 1 : 1300);
-  });
-
-  /* ============================= EXHIBIT B: SHA-256 CUSTODY CHAIN (real, via CustodyChain) ============================= */
+  /* ============================= MODULE 01: SHA-256 CUSTODY CHAIN (real, via CustodyChain) ============================= */
   const custodyRoles = ['Question Setter', 'Print Vendor', 'Transport Custodian', 'District Coordinator', 'Centre Proctor', 'Records Clerk'];
   const defaultNotes = [
     'Finalised question set for Version A.',
@@ -255,7 +195,7 @@
     await renderPinned();
   });
 
-  /* ============================= EXHIBIT C: SHAMIR'S SECRET SHARING (real, via Shamir) ============================= */
+  /* ============================= MODULE 02: SHAMIR'S SECRET SHARING (real, via Shamir) ============================= */
   const SECRET_TEXT = 'ALPHA-SEAL-9F2C';
   const K = 4, N = 6;
   let shareTable = [];
@@ -326,7 +266,7 @@
   }
   update();
 
-  /* ============================= EXHIBIT D: SIMILARITY (real, via Similarity) ============================= */
+  /* ============================= MODULE 03: SIMILARITY (real, via Similarity) ============================= */
   const textA = document.getElementById('textA');
   const textB = document.getElementById('textB');
   const meterFill = document.getElementById('meterFill');
