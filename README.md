@@ -2,7 +2,7 @@
 
 A demonstration toolkit for exam and document integrity supply chains: three small, working implementations of mechanisms that harden a custody chain against an insider with legitimate access, plus an interactive demo that runs all three live in the browser.
 
-**[Live demo](https://sole-prop.github.io/exam-integrity-model/demo/)** · [What's real vs. illustrative](#whats-real-and-whats-illustration)
+**[Live demo](https://abhisarpratapsingh.github.io/exam-integrity-model/demo/)** · [What's real vs. illustrative](#whats-real-and-whats-illustration)
 
 ## What this is
 
@@ -49,7 +49,7 @@ An earlier draft of this demo used a toy hash function and a scripted countdown 
 Requires Node.js 18 or later. No install step, this project has zero runtime dependencies.
 
 ```bash
-git clone https://github.com/sole-prop/exam-integrity-model.git
+git clone https://github.com/abhisarpratapsingh/exam-integrity-model.git
 cd exam-integrity-model
 
 npm test          # run the full test suite (node's built-in test runner)

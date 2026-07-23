@@ -25,10 +25,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sole-prop/exam-integrity-model.git"
+    "url": "git+https://github.com/abhisarpratapsingh/exam-integrity-model.git"
   },
-  "homepage": "https://sole-prop.github.io/exam-integrity-model/demo/",
+  "homepage": "https://abhisarpratapsingh.github.io/exam-integrity-model/demo/",
   "bugs": {
-    "url": "https://github.com/sole-prop/exam-integrity-model/issues"
+    "url": "https://github.com/abhisarpratapsingh/exam-integrity-model/issues"
   }
 }
