@@ -1,0 +1,20 @@
+# Dependencies (none are required by this project, but ignore just in case
+# a contributor adds tooling later)
+node_modules/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor cruft
+.vscode/
+.idea/
+*.swp
+
+# Logs
+npm-debug.log*
+*.log
+
+# Env files, in case any local tooling ever needs one
+.env
+.env.local
